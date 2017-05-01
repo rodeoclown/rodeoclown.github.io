@@ -6,3 +6,5 @@ _site/
 
 **.iml
 .idea/
+Gemfile.lock
+/.idea/
