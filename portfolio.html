@@ -1,0 +1,30 @@
+---
+layout: base
+title: Portfolio
+permalink: portfolio.html
+---
+<div class="wrapper">
+    {% include sidebar.html %}
+    <main class="portfolio">
+        <h1>Portfolio</h1>
+        <p>These are the games I've had the privilege of copyediting and/or proofreading.</p>
+        <ul>
+            <hr/>
+            {% assign portfolio = ((site.data.portfolio | sort: 'date')| reverse) %}
+            {% for item in portfolio %}
+                <li style="text-align:center">
+                    <div>
+                        <a href="/assets/images/portfolio/{{item.img}}">
+                            <img src="/assets/images/portfolio/{{item.img}}" width="200px" title="{{item.title}}"/>
+                        </a>
+                    </div>
+                    <a href="{{item.bgg_url}}" class="title">{{item.title}}</a> <br/>
+                    <a href="{{item.publisher_url}}" class="publisher">{{item.publisher}}</a>
+                </li>
+                {% if forloop.last == false %}
+                    <hr/>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </main>
+</div>
